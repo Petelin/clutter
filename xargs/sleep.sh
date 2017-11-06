@@ -1,4 +1,3 @@
 #!/bin/bash
-
-echo sleep $1
 sleep $1
+echo sleep end at `date +%s`

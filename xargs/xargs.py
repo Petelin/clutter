@@ -17,11 +17,13 @@ def excute_task(bin_name, total_args, process_num):
 
 
 def excute_xargs(command, args_num, process_num):
-    global stop
     total_args = []
     while True:
         line = sys.stdin.readline()
         if not line:
+            if len(total_args) > 0:
+                excute_task(command, total_args, process_num)
+            global stdin_close
             stdin_close = True
             break
         total_args += line.split()
